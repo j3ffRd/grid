@@ -23,6 +23,6 @@ import { GridstackModule, GridstackComponent } from 'gridstack/dist/angular';
 export class AppModule {
   constructor() {
     // register all our dynamic components created in the grid
-    GridstackComponent.addComponentToSelectorType([AComponent, BComponent, CComponent]);
+    
   }
 }

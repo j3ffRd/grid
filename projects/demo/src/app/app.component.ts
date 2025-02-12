@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { GridStack, GridStackOptions, GridStackWidget } from 'gridstack';
 import { GridstackComponent, NgGridStackOptions, NgGridStackWidget, elementCB, gsCreateNgComponents, nodesCB } from 'gridstack/dist/angular';
+import { AComponent, BComponent, CComponent } from './dummy.component';
 
 // unique ids sets for each item for correct ngFor updating
 let ids = 1;
@@ -52,7 +53,7 @@ export class AppComponent implements OnInit {
   private serializedData?: NgGridStackOptions;
 
   constructor() {
-
+    GridstackComponent.addComponentToSelectorType([AComponent, BComponent, CComponent]);
     // give them content and unique id to make sure we track them during changes below...
     [...this.items, ...this.subChildren, ...this.sub1, ...this.sub2, ...this.sub0].forEach((w: NgGridStackWidget) => {
       if (!w.selector && !w.content && !w.subGridOpts) w.content = `item ${ids++}`;
