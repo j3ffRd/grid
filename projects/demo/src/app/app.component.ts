@@ -6,9 +6,11 @@ import { AComponent, BComponent, CComponent } from './dummy.component';
 // unique ids sets for each item for correct ngFor updating
 let ids = 1;
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: true,
+    imports: [GridstackComponent]
 })
 export class AppComponent implements OnInit {
 

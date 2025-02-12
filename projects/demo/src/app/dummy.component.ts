@@ -2,8 +2,9 @@ import { Component, OnDestroy, Input, ViewChild, ViewContainerRef } from '@angul
 import { BaseWidget, NgCompInputs } from 'gridstack/dist/angular';
 
 @Component({
-  selector: 'app-a',
-  template: 'Comp A {{text}}'
+    selector: 'app-a',
+    template: 'Comp A {{text}}',
+    standalone: true
 })
 export class AComponent extends BaseWidget implements OnDestroy {
   @Input() text: string = 'foo'; // test custom input data
@@ -13,8 +14,9 @@ export class AComponent extends BaseWidget implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-b',
-  template: 'Comp B'
+    selector: 'app-b',
+    template: 'Comp B',
+    standalone: true
 })
 export class BComponent extends BaseWidget implements OnDestroy {
   constructor() { super(); console.log('Comp B created'); }
@@ -22,8 +24,9 @@ export class BComponent extends BaseWidget implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-c',
-  template: 'Comp C'
+    selector: 'app-c',
+    template: 'Comp C',
+    standalone: true
 })
 export class CComponent extends BaseWidget implements OnDestroy {
   ngOnDestroy() { console.log('Comp C destroyed'); }
