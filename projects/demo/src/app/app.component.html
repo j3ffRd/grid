@@ -1,10 +1,19 @@
 <div class="test-container">
   <button (click)="add()">add item</button>
-  <button (click)="delete()">remove item</button>
   <button (click)="modify()">modify item</button>
-  <button (click)="newLayout()">new layout</button>
   <button (click)="saveGrid()">Save</button>
   <button (click)="clearGrid()">Clear</button>
   <button (click)="loadGrid()">Load</button>
-  <gridstack [options]="gridOptionsFull" (changeCB)="onChange($event)" (resizeStopCB)="onResizeStop($event)"></gridstack>
+  <gridstack [options]="gridOptions" (changeCB)="onChange($event)" (resizeStopCB)="onResizeStop($event)">
+      <gridstack-item *ngFor="let widget of items trackBy: identify" 
+              [id]="widget.id"
+              [attr.gs-x]="widget.x"
+              [attr.gs-y]="widget.y"
+              [attr.gs-w]="widget.w"
+              [attr.gs-h]="widget.h"
+            >
+          <app-b [id]="widget.id" (delete)="deleteW(widget.id)"></app-b>
+      </gridstack-item>
+  </gridstack>
 </div>
+
